@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 600px at 10% -10%, #0f3219 0%, transparent 60%),
+              radial-gradient(900px 500px at 110% 10%, #164824 0%, transparent 55%),
+              #06140b;
+  color: #eaf4ec;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+input, select, textarea, button {
+  font-family: inherit;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #164824; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #1d5d2f; }
+
+/* Safe area padding for mobile */
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+@layer components {
+  .card {
+    @apply bg-reptile-900/70 backdrop-blur border border-reptile-800 rounded-2xl;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-medium transition active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply btn bg-accent text-reptile-950 hover:bg-accent-400;
+  }
+  .btn-secondary {
+    @apply btn bg-reptile-800 text-reptile-50 hover:bg-reptile-700;
+  }
+  .btn-ghost {
+    @apply btn text-reptile-200 hover:bg-reptile-800;
+  }
+  .input {
+    @apply w-full bg-reptile-950/60 border border-reptile-800 rounded-xl px-3.5 py-3 text-reptile-50 placeholder:text-reptile-300/40 focus:outline-none focus:border-accent transition;
+  }
+  .label {
+    @apply block text-xs uppercase tracking-wider text-reptile-200/70 mb-1.5 font-semibold;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium;
+  }
+}
